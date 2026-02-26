@@ -11,7 +11,6 @@ public class PalindromeCheckerApp {
         long end = System.nanoTime();
         System.out.println("String Reverse Time: " + (end - start) + " ns");
 
-        // Test Two-Pointer
         start = System.nanoTime();
         isPalindromeTwoPointer(input);
         end = System.nanoTime();
