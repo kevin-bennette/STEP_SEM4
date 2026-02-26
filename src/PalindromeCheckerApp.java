@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class PalindromeCheckerApp {
     public static void main(String[] args) {
         System.out.println("Welcome to the Palindrome Checker App");
         System.out.println("Version: 1.0");
