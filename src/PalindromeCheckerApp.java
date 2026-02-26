@@ -14,7 +14,7 @@ class PalindromeService {
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        PalindromeService service = new PalindromeService(); // [cite: 69]
+        PalindromeService service = new PalindromeService();
 
         System.out.print("Enter string: ");
         String input = scanner.nextLine();
