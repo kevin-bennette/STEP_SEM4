@@ -1,34 +1,52 @@
 import java.util.Scanner;
 
+class Node {
+    char data;
+    Node next;
+    Node(char data) { this.data = data; }
+}
+
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a long string for performance test: ");
+        System.out.print("Enter string: ");
         String input = scanner.nextLine();
 
-        long start = System.nanoTime();
-        isPalindromeReverse(input);
-        long end = System.nanoTime();
-        System.out.println("String Reverse Time: " + (end - start) + " ns");
+        if (input.isEmpty()) return;
 
-        // Test Two-Pointer
-        start = System.nanoTime();
-        isPalindromeTwoPointer(input);
-        end = System.nanoTime();
-        System.out.println("Two-Pointer Time: " + (end - start) + " ns");
-
-        scanner.close();
-    }
-
-    public static boolean isPalindromeReverse(String s) {
-        return new StringBuilder(s).reverse().toString().equalsIgnoreCase(s);
-    }
-
-    public static boolean isPalindromeTwoPointer(String s) {
-        int i = 0, j = s.length() - 1;
-        while (i < j) {
-            if (s.charAt(i++) != s.charAt(j--)) return false;
+        Node head = new Node(input.charAt(0));
+        Node temp = head;
+        for (int i = 1; i < input.length(); i++) {
+            temp.next = new Node(input.charAt(i));
+            temp = temp.next;
         }
-        return true;
+
+        Node slow = head, fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        Node prev = null;
+        while (slow != null) {
+            Node nextNode = slow.next;
+            slow.next = prev;
+            prev = slow;
+            slow = nextNode;
+        }
+
+        Node left = head, right = prev;
+        boolean isPalindrome = true;
+        while (right != null) {
+            if (left.data != right.data) {
+                isPalindrome = false;
+                break;
+            }
+            left = left.next;
+            right = right.next;
+        }
+
+        System.out.println(input + (isPalindrome ? " is a palindrome." : " is not a palindrome."));
+        scanner.close();
     }
 }
