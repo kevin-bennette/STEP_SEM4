@@ -6,7 +6,6 @@ public class PalindromeCheckerApp {
         System.out.print("Enter a long string for performance test: ");
         String input = scanner.nextLine();
 
-        // Test String Reverse [cite: 105]
         long start = System.nanoTime();
         isPalindromeReverse(input);
         long end = System.nanoTime();
