@@ -11,12 +11,10 @@ public class Main {
         scanner.close();
     }
 
-
     public static boolean isPalindrome(String s, int start, int end) {
-        // Base conditions [cite: 36, 39]
+
         if (start >= end) return true;
         if (s.charAt(start) != s.charAt(end)) return false;
-
 
         return isPalindrome(s, start + 1, end - 1);
     }
