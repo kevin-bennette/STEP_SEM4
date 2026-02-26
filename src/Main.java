@@ -11,13 +11,13 @@ public class Main {
         scanner.close();
     }
 
-    // Recursive method [cite: 38]
+
     public static boolean isPalindrome(String s, int start, int end) {
         // Base conditions [cite: 36, 39]
         if (start >= end) return true;
         if (s.charAt(start) != s.charAt(end)) return false;
 
-        // Recursive call [cite: 35]
+
         return isPalindrome(s, start + 1, end - 1);
     }
 }
